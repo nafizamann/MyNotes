@@ -29,8 +29,10 @@ android:
     - sys-img-armeabi-v7a-android-26
     # - sys-img-armeabi-v7a-android-21
 
-notifications:
-  email: false
+env:
+  global:
+    # install timeout in minutes (2 minutes by default)
+    - ADB_INSTALL_TIMEOUT=8
 
 before_cache:
   - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
@@ -56,6 +58,8 @@ before_script:
 
 #Build, and run tests
 script: 
+  - echo $ADB_INSTALL_TIMEOUT
+  - android list target
   # Once tests written should run the gradle task for both Mobile and Wear
   # currently only doing a normal build to test Travis config
   #- ./gradlew core:unitTests
