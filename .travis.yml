@@ -1,7 +1,7 @@
 language: android
 
 before_install:
-- chmod +x gradlew
+  - chmod +x gradlew
    
 android:
   components:
@@ -41,4 +41,4 @@ script:
   #- ./gradlew core:unitTests
   #- ./gradlew mobile:functionalTests
   #- ./gradlew wear:functionalTests
-- ./gradlew mobile:build # as an example
+  - ./gradlew mobile:build # as an example
